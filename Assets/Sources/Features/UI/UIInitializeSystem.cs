@@ -1,9 +1,13 @@
 ﻿using System;
 using Entitas;
+using UnityEngine;
+using UnityEngine.UI;
+
 
 class UIInitializeSystem : IInitializeSystem
 {
     readonly Context _context;
+    Button b;
 
     public UIInitializeSystem(Contexts contexts)
     {
@@ -13,7 +17,8 @@ class UIInitializeSystem : IInitializeSystem
 
     public void Initialize()
     {
-        throw new NotImplementedException();
+        b = GameObject.Find("/Canvas/Button").GetComponent<Button>();
+        _context.CreateEntity().AddButton(b);
     }
 }
 

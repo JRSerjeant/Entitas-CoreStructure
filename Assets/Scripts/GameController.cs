@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour {
                   
         // Initialize
             .Add(new CreatePlayerSystem(contexts))
+            .Add(new UIInitializeSystem(contexts))
 
         // Input
             // Add input systems
