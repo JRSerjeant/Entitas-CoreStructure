@@ -5,7 +5,10 @@ using UnityEngine;
 
 public sealed class AddViewSystem : ReactiveSystem
 {
+    Context _context;
+
     public AddViewSystem(Contexts contexts) : base(contexts.game){
+        _context = contexts.game;
     }
 
     protected override void Execute(List<Entity> entities)
@@ -17,6 +20,7 @@ public sealed class AddViewSystem : ReactiveSystem
             try
             {
                 gameObject = UnityEngine.Object.Instantiate(res);
+                
             }
             catch (Exception)
             {
@@ -27,6 +31,7 @@ public sealed class AddViewSystem : ReactiveSystem
             {
                 gameObject.transform.parent = _viewContainer;
                 e.AddView(gameObject);
+                gameObject.Link(e, _context);
             }
         }
     }

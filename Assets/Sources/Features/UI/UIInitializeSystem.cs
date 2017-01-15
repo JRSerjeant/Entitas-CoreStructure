@@ -7,7 +7,9 @@ using UnityEngine.UI;
 class UIInitializeSystem : IInitializeSystem
 {
     readonly Context _context;
-    Button b;
+    Entity _entity;
+    GameObject _gameObject;
+    Button _button;
 
     public UIInitializeSystem(Contexts contexts)
     {
@@ -17,8 +19,11 @@ class UIInitializeSystem : IInitializeSystem
 
     public void Initialize()
     {
-        b = GameObject.Find("/Canvas/Button").GetComponent<Button>();
-        _context.CreateEntity().AddButton(b);
+        _gameObject = GameObject.Find("/Canvas/Button");
+        _button = _gameObject.GetComponent<Button>();
+        _entity = _context.CreateEntity().AddButton(_button);
+        _gameObject.Link(_entity, _context);
+
     }
 }
 
