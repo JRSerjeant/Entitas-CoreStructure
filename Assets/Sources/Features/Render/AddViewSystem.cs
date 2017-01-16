@@ -19,6 +19,7 @@ public sealed class AddViewSystem : ReactiveSystem
             GameObject gameObject = null;
             try
             {
+
                 gameObject = UnityEngine.Object.Instantiate(res);
                 
             }
@@ -30,6 +31,7 @@ public sealed class AddViewSystem : ReactiveSystem
             if (gameObject != null)
             {
                 gameObject.transform.parent = _viewContainer;
+                Debug.Log("Creating GameObject");
                 e.AddView(gameObject);
                 gameObject.Link(e, _context);
             }

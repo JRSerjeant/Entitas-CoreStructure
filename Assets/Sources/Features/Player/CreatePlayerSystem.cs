@@ -1,5 +1,6 @@
 ﻿using System;
 using Entitas;
+using UnityEngine;
 
 public sealed class CreatePlayerSystem : IInitializeSystem
 {
@@ -11,6 +12,7 @@ public sealed class CreatePlayerSystem : IInitializeSystem
 
     public void Initialize()
     {
+        //Debug.Log("Creating GameObject Resource");
         _context.CreateEntity()
             .AddResource("TestObject");
     }
