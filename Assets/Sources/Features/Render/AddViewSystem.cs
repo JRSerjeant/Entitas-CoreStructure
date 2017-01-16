@@ -31,7 +31,6 @@ public sealed class AddViewSystem : ReactiveSystem
             if (gameObject != null)
             {
                 gameObject.transform.parent = _viewContainer;
-                Debug.Log("Creating GameObject");
                 e.AddView(gameObject);
                 gameObject.Link(e, _context);
             }
